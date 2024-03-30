@@ -11,7 +11,7 @@ namespace ConsoleApp2.Tests
             employee.AddScore(6);
 
 
-            var result = employee.Result;
+            var result = employee.score;
 
 
             Assert.AreEqual(11, result);
