@@ -21,8 +21,6 @@
 
         public void AddScore(int number)
         {
-            this.score = this.score + number;
-
             this.score += number;
         }
     }

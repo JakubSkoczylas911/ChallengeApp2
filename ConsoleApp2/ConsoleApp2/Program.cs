@@ -38,3 +38,4 @@ foreach (var employee in employees)
 Console.WriteLine($" (Najlepszy wynik) - {employeeWithMaxScore.Name} {employeeWithMaxScore.Surname}, z Wynikiem {employeeWithMaxScore.score}!");
 
 
+
