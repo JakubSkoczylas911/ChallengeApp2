@@ -1,4 +1,4 @@
-﻿using System.Security.Cryptography;
+﻿using System.ComponentModel.Design;
 
 namespace ConsoleApp2
 {
@@ -23,8 +23,19 @@ namespace ConsoleApp2
         public int Age { get; set; }
         public void AddScore(float score)
         {
-            this.score += number;
-            this.scores.Add(score);
+            if (score >= 0 && score <= 100)
+            {
+                this.scores.Add(score);
+            }
+            else
+            {
+                throw new Exception("invalid score value");
+            }
+        }
+        public void AddScore(string score)
+        {
+            if (float.TryParse(score, out float scoreValue)) ;
+
         }
 
         public Statistics GetStatistics()
