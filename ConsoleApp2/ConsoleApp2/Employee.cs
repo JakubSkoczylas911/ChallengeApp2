@@ -7,15 +7,14 @@ namespace ConsoleApp2
         private List<float> scores = new List<float>();
 
 
-        public int score;
-        public int number;
+
         public Employee(string name, string surname, int age)
         {
 
             this.Name = name;
             this.Surname = surname;
             this.Age = age;
-            this.score = 0;
+
 
         }
         public string Name { get; set; }
@@ -42,24 +41,24 @@ namespace ConsoleApp2
             {
                 Console.WriteLine("String is not float");
             }
-
-             Statistics GetStatistics()
-            {
-                var statistics = new Statistics();
-                statistics.Average = 0;
-                statistics.Max = float.MinValue;
-                statistics.Min = float.MaxValue;
-                foreach (var score in this.scores)
-                {
-                    statistics.Max = Math.Max(statistics.Max, score);
-                    statistics.Min = Math.Min(statistics.Min, score);
-                    statistics.Average += score;
-                }
-                statistics.Average = statistics.Average / this.scores.Count;
-
-                return statistics;
-            }
         }
-    } }
+        public Statistics GetStatistics()
+        {
+            var statistics = new Statistics();
+            statistics.Average = 0;
+            statistics.Max = float.MinValue;
+            statistics.Min = float.MaxValue;
+            foreach (var score in this.scores)
+            {
+                statistics.Max = Math.Max(statistics.Max, score);
+                statistics.Min = Math.Min(statistics.Min, score);
+                statistics.Average += score;
+            }
+            statistics.Average = statistics.Average / this.scores.Count;
+
+            return statistics;
+        }
+    }
+}
 
 
