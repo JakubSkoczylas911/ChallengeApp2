@@ -29,30 +29,37 @@ namespace ConsoleApp2
             }
             else
             {
-                throw new Exception("invalid score value");
+                Console.WriteLine("invalid score value");
             }
         }
         public void AddScore(string score)
         {
-            if (float.TryParse(score, out float scoreValue)) ;
-
-        }
-
-        public Statistics GetStatistics()
-        {
-            var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
-            foreach (var score in this.scores)
+            if (float.TryParse(score, out float scoreValue))
             {
-                statistics.Max = Math.Max(statistics.Max, score);
-                statistics.Min = Math.Min(statistics.Min, score);
-                statistics.Average += score;
+                this.AddScore(scoreValue);
             }
-            statistics.Average = statistics.Average / this.scores.Count;
+            else
+            {
+                Console.WriteLine("String is not float");
+            }
 
-            return statistics;
+             Statistics GetStatistics()
+            {
+                var statistics = new Statistics();
+                statistics.Average = 0;
+                statistics.Max = float.MinValue;
+                statistics.Min = float.MaxValue;
+                foreach (var score in this.scores)
+                {
+                    statistics.Max = Math.Max(statistics.Max, score);
+                    statistics.Min = Math.Min(statistics.Min, score);
+                    statistics.Average += score;
+                }
+                statistics.Average = statistics.Average / this.scores.Count;
+
+                return statistics;
+            }
         }
-    }
-}
+    } }
+
+
