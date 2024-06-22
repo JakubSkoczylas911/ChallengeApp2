@@ -61,59 +61,6 @@ namespace ConsoleApp2
 
             return statistics;
         }
-
-        public Statistics GetStatisticsWithFor()
-        {
-            var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
-            for (var index = 0; index < this.scores.Count; index++)
-            {
-                statistics.Max = Math.Max(statistics.Max, this.scores[index]);
-                statistics.Min = Math.Min(statistics.Min, this.scores[index]);
-                statistics.Average += this.scores[index];
-            }
-            statistics.Average /= this.scores.Count;
-            return statistics;
-        }
-
-
-        public Statistics GetStatisticsWithDoWhile()
-        {
-            var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue;
-            var index = 0;
-            do
-            {
-                statistics.Max = Math.Max(statistics.Max, this.scores[index]);
-                statistics.Min = Math.Min(statistics.Min, this.scores[index]);
-                statistics.Average += this.scores[index];
-                index++;
-            } while (index < this.scores.Count);
-            statistics.Average /= this.scores.Count;
-
-            return statistics;
-        }
-        public Statistics GetStatisticsWithWhile()
-        {
-            var statistics = new Statistics();
-            statistics.Average = 0;
-            statistics.Max = float.MinValue;
-            statistics.Min = float.MaxValue; ;
-            var index = 0;
-            while (index < this.scores.Count)
-            {
-                statistics.Max = Math.Max(statistics.Max, this.scores[index]);
-                statistics.Min = Math.Min(statistics.Min, this.scores[index]);
-                statistics.Average += this.scores[index];
-                index++;
-            }
-            statistics.Average /= this.scores.Count;
-            return statistics;
-        }
     }
 }
 
