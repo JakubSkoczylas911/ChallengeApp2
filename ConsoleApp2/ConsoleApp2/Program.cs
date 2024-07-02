@@ -1,14 +1,19 @@
 ﻿using ConsoleApp2;
-
-var employee = new Employee("Renata", "Skoczylas", 57);
-
-employee.AddScore(5);
-employee.AddScore(10);
-
-employee.AddScore(6);
+Console.WriteLine("Witamy w programie do oceny pracowników");
+Console.WriteLine("=======================================");
+Console.WriteLine();
+var employee = new Employee();
+while (true)
+{
+    Console.WriteLine("Podaj kolejną ocenę pracownika?");
+    var input = Console.ReadLine();
+    if (input == "q")
+    {
+        break;
+    }
+    employee.AddScore(input);
+}
 var statistics = employee.GetStatistics();
-
-Console.WriteLine($"Pracownik:{employee.Name} {employee.Surname}");
-Console.WriteLine($"Średnia ocen:{statistics.Average:N2}");
-Console.WriteLine($"Najniższa ocena:{statistics.Min:N2}");
-Console.WriteLine($"Najwyższa ocena:{statistics.Max:N2}");
+Console.WriteLine($"Ocena najniższa:{statistics.Min}");
+Console.WriteLine($"Ocena najwyższa:{statistics.Max}");
+Console.WriteLine($"Ocena średnia:{statistics.Average}");

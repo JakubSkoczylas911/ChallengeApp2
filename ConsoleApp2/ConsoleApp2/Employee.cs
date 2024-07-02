@@ -11,18 +11,9 @@ namespace ConsoleApp2
 
 
 
-        public Employee(string name, string surname, int age)
+        public Employee()
         {
-
-            this.Name = name;
-            this.Surname = surname;
-            this.Age = age;
-
-
-        }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public int Age { get; set; }
+}
         public void AddScore(float score)
         {
             if (score >= 0 && score <= 100)
@@ -45,6 +36,36 @@ namespace ConsoleApp2
                 Console.WriteLine("String is not float");
             }
         }
+        public void AddScore(char score)
+        {
+            switch (score)
+            {
+                case 'A':
+                case 'a':
+                    this.scores.Add(100);
+                    break;
+                case 'B':
+                case 'b':
+                    this.scores.Add(80);
+                    break;
+                case 'C':
+                case 'c':
+                    this.scores.Add(60);
+                    break;
+                case 'D':
+                case 'd':
+                    this.scores.Add(40);
+                    break;
+                case 'E':
+                case 'e':
+                    this.scores.Add(20);
+                    break;
+                default:
+                    Console.WriteLine("Wrong letter");
+                    break;
+
+            }
+        }
         public Statistics GetStatistics()
         {
             var statistics = new Statistics();
@@ -57,7 +78,26 @@ namespace ConsoleApp2
                 statistics.Min = Math.Min(statistics.Min, score);
                 statistics.Average += score;
             }
-            statistics.Average = statistics.Average / this.scores.Count;
+            statistics.Average = statistics.Average /= this.scores.Count;
+            switch (statistics.Average)
+            {
+                case var avererage when avererage >= 80:
+                    statistics.AverageLetter = 'A';
+                    break;
+                case var average when average >= 60:
+                    statistics.AverageLetter = 'B';
+                    break;
+                case var average when average >= 40:
+                    statistics.AverageLetter = 'C';
+                    break;
+                case var average when average >= 20:
+                    statistics.AverageLetter = 'D';
+                    break;
+                default:
+                    statistics.AverageLetter = 'E';
+                    break;
+            }
+
 
             return statistics;
         }
