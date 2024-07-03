@@ -8,12 +8,14 @@ namespace ConsoleApp2
     public class Employee
     {
         private List<float> scores = new List<float>();
-
+        public Employee(string name, string surname)
+        {
+        }
 
 
         public Employee()
         {
-}
+        }
         public void AddScore(float score)
         {
             if (score >= 0 && score <= 100)

@@ -5,14 +5,14 @@
         [Test]
         public void Test()
         {
-            var employee1 = GetEmployee("Renata", "Skoczylas", 57);
-            var employee2 = GetEmployee("Marcin", "Skoczylas", 43);
+            var employee1 = GetEmployee("Renata", "Skoczylas");
+            var employee2 = GetEmployee("Marcin", "Skoczylas");
             Assert.AreNotEqual(employee1, employee2);
 
         }
-        private Employee GetEmployee(string name, string surname, int age)
+        private Employee GetEmployee(string name, string surname)
         {
-            return new Employee(name, surname, age);
+            return new Employee();
         }
         [Test]
         public void WhenTwoNumbersAreTheSame()

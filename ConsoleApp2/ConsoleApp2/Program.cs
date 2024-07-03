@@ -5,7 +5,7 @@ Console.WriteLine();
 var employee = new Employee();
 while (true)
 {
-    Console.WriteLine("Podaj kolejną ocenę pracownika?");
+    Console.WriteLine("Podaj kolejną ocenę pracownika?lub wprowadź q by poznac dotychczasowe statystyki");
     var input = Console.ReadLine();
     if (input == "q")
     {
