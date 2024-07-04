@@ -10,8 +10,11 @@ namespace ConsoleApp2
         private List<float> scores = new List<float>();
         public Employee(string name, string surname)
         {
+            this.Name = name;
+            this.Surname = surname;
         }
-
+        public string Name { get; set; }
+        public string Surname { get; set; }
 
         public Employee()
         {
