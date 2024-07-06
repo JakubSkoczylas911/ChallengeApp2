@@ -2,7 +2,7 @@
 Console.WriteLine("Witamy w programie do oceny pracowników");
 Console.WriteLine("=======================================");
 Console.WriteLine();
-var employee = new Employee("Jan","Kowalski");
+var employee = new Employee("Jan", "Kowalski");
 while (true)
 {
     Console.WriteLine("Podaj kolejną ocenę pracownika?lub wprowadź q by poznac dotychczasowe statystyki");
@@ -11,8 +11,17 @@ while (true)
     {
         break;
     }
-    employee.AddScore(input);
+    try
+    {
+        employee.AddScore(input);
+    }
+    catch (Exception e)
+    {
+
+        Console.WriteLine($"Exeption catched:{e.Message}");
+    }
 }
+
 var statistics = employee.GetStatistics();
 Console.WriteLine($"Ocena najniższa:{statistics.Min}");
 Console.WriteLine($"Ocena najwyższa:{statistics.Max}");

@@ -27,7 +27,7 @@ namespace ConsoleApp2
             }
             else
             {
-                Console.WriteLine("invalid score value");
+                throw new Exception("invalid score value");
             }
         }
         public void AddScore(string score)
@@ -38,7 +38,7 @@ namespace ConsoleApp2
             }
             else
             {
-                Console.WriteLine("String is not float");
+                throw new Exception("String is not float");
             }
         }
         public void AddScore(char score)
@@ -66,8 +66,8 @@ namespace ConsoleApp2
                     this.scores.Add(20);
                     break;
                 default:
-                    Console.WriteLine("Wrong letter");
-                    break;
+                    throw new Exception("Wrong letter");
+
 
             }
         }
