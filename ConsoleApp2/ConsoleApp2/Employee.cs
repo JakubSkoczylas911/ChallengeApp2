@@ -1,24 +1,14 @@
-﻿using System.ComponentModel.Design;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
-using ConsoleApp2;
-
-namespace ConsoleApp2
+﻿namespace ConsoleApp2
 {
-    public class Employee
+    public class Employee : Person
     {
         private List<float> scores = new List<float>();
-        public Employee(string name, string surname)
+        public Employee(string name, string surname, string sex)
+             : base(name, surname, sex)
         {
-            this.Name = name;
-            this.Surname = surname;
         }
-        public string Name { get; set; }
-        public string Surname { get; set; }
 
-        public Employee()
-        {
-        }
+
         public void AddScore(float score)
         {
             if (score >= 0 && score <= 100)
