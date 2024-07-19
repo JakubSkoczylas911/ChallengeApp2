@@ -2,7 +2,7 @@
 Console.WriteLine("Witamy w programie do oceny pracowników");
 Console.WriteLine("=======================================");
 Console.WriteLine();
-var employee = new Employee("Jan", "Kowalski");
+var employee = new Employee("Jan", "Kowalski", "male");
 while (true)
 {
     Console.WriteLine("Podaj kolejną ocenę pracownika?lub wprowadź q by poznac dotychczasowe statystyki");

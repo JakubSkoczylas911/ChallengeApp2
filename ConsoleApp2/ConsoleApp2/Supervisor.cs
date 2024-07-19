@@ -1,21 +1,17 @@
 ﻿namespace ConsoleApp2
 {
-    public class Employee : IEmployee
+    public class Supervisor:IEmployee
     {
         private List<float> scores = new List<float>();
-        public Employee(string name, string surname, string sex)
-
+        public Supervisor(string name,string surname,string sex)
         {
             this.Name = name;
             this.Surname = surname;
             this.Sex = sex;
-        }
-        public string Name { get; private set; }
+}
+public string Name { get; private set; }
         public string Surname { get; private set; }
         public string Sex { get; private set; }
-
-
-
         public void AddScore(float score)
         {
             if (score >= 0 && score <= 100)
@@ -29,47 +25,99 @@
         }
         public void AddScore(string score)
         {
-            if (float.TryParse(score, out float scoreValue))
+        
+            switch (score)
             {
-                this.AddScore(scoreValue);
-            }
-            else if (char.TryParse(score, out char charValue))
-            {
-                this.AddScore(charValue);
-            }
-            else
-            {
-                throw new Exception("String is not float");
+                case "6":
+                    this.AddScore(100);
+                    break;
+                case "6-":
+                case "-6":
+
+                    this.AddScore(95);
+                    break;
+                case "5+":
+                case "+5":
+                    this.AddScore(85);
+                    break;
+                case "5":
+                    this.AddScore(80);
+                    break;
+
+                case "5-":
+                case "-5":
+                    this.AddScore(75);
+                    break;
+                case "4+":
+                case "+4":
+                    this.AddScore(65);
+                    break;
+                case "4":
+                    this.AddScore(60);
+                    break;
+                case "4-":
+                case "-4":
+                    this.AddScore(55);
+                    break;
+                case "3+":
+                case "+3":
+                    this.AddScore(45);
+                    break;
+                case "3":
+                    this.AddScore(40);
+                    break;
+                case "3-":
+                case "-3":
+
+                    this.AddScore(35);
+                    break;
+                case "2+":
+                case "+2":
+                    this.AddScore(25);
+                    break;
+                case "2":
+                    this.AddScore(20);
+                    break;
+                case "2-":
+                case "-2":
+
+                    this.AddScore(15);
+                    break;
+                case "1+":
+                case "+1":
+                    this.AddScore(5);
+                    break;
+                case "1":
+                    this.AddScore(0);
+                    break;
             }
         }
         public void AddScore(char score)
         {
-            switch (score)
+            switch ((float)score)
             {
                 case 'A':
                 case 'a':
-                    this.scores.Add(100);
+                    this.AddScore(100);
                     break;
                 case 'B':
                 case 'b':
-                    this.scores.Add(80);
+                    this.AddScore(80);
                     break;
                 case 'C':
                 case 'c':
-                    this.scores.Add(60);
+                    this.AddScore(60);
                     break;
                 case 'D':
                 case 'd':
-                    this.scores.Add(40);
+                    this.AddScore(40);
                     break;
                 case 'E':
                 case 'e':
-                    this.scores.Add(20);
+                    this.AddScore(20);
                     break;
                 default:
-                    throw new Exception("Wrong letter");
-
-
+                    throw new Exception("Wrong Letter");
             }
         }
         public Statistics GetStatistics()
@@ -109,13 +157,3 @@
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
