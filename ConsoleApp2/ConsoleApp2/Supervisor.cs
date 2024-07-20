@@ -1,15 +1,15 @@
 ﻿namespace ConsoleApp2
 {
-    public class Supervisor:IEmployee
+    public class Supervisor : IEmployee
     {
         private List<float> scores = new List<float>();
-        public Supervisor(string name,string surname,string sex)
+        public Supervisor(string name, string surname, string sex)
         {
             this.Name = name;
             this.Surname = surname;
             this.Sex = sex;
-}
-public string Name { get; private set; }
+        }
+        public string Name { get; private set; }
         public string Surname { get; private set; }
         public string Sex { get; private set; }
         public void AddScore(float score)
@@ -25,7 +25,7 @@ public string Name { get; private set; }
         }
         public void AddScore(string score)
         {
-        
+
             switch (score)
             {
                 case "6":

@@ -44,7 +44,7 @@
         }
         public void AddScore(char score)
         {
-            switch (score)
+            switch ((float)score)
             {
                 case 'A':
                 case 'a':
