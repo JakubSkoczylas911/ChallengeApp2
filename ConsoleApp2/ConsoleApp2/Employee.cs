@@ -48,23 +48,23 @@
             {
                 case 'A':
                 case 'a':
-                    this.scores.Add(100);
+                    this.AddScore(100);
                     break;
                 case 'B':
                 case 'b':
-                    this.scores.Add(80);
+                    this.AddScore(80);
                     break;
                 case 'C':
                 case 'c':
-                    this.scores.Add(60);
+                    this.AddScore(60);
                     break;
                 case 'D':
                 case 'd':
-                    this.scores.Add(40);
+                    this.AddScore(40);
                     break;
                 case 'E':
                 case 'e':
-                    this.scores.Add(20);
+                    this.AddScore(20);
                     break;
                 default:
                     throw new Exception("Wrong letter");
