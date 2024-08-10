@@ -3,6 +3,14 @@ Console.WriteLine("Witamy w programie do oceny pracowników");
 Console.WriteLine("=======================================");
 Console.WriteLine();
 var employee = new EmployeeInFile("Jan", "Kowalski", "male");
+employee.ScoreAded += Employee_ScoreAded;
+
+void Employee_ScoreAded(object sender, EventArgs args)
+{
+    Console.WriteLine("Dodano nową ocenę");
+}
+ 
+
 while (true)
 {
     Console.WriteLine("Podaj kolejną ocenę pracownika?lub wprowadź q by poznac dotychczasowe statystyki");
