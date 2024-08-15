@@ -2,9 +2,11 @@
 {
     public class EmployeeInMemory : EmployeeBase
     {
+        public override event ScoreAddedDelegate ScoreAdded;
         private List<float> scores = new List<float>();
         public EmployeeInMemory(string name, string surname, string sex) : base(name, surname, sex)
         {
+
         }
 
         public override void AddScore(float score)
@@ -12,7 +14,12 @@
             if (score >= 0 && score <= 100)
             {
                 this.AddScore(score);
+                if (ScoreAdded != null)
+                {
+                    ScoreAdded(this, new EventArgs());
+                }
             }
+
             else
             {
                 throw new Exception("invalid score value");

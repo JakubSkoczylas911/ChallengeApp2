@@ -2,6 +2,7 @@
 {
     public class EmployeeInFile : EmployeeBase
     {
+        public override event ScoreAddedDelegate ScoreAdded;
         private const string FileName = "scores.txt";
         public EmployeeInFile(string name, string surname, string sex) : base(name, surname, sex)
         {
@@ -15,6 +16,11 @@
                 {
                     writer.WriteLine(score);
                 }
+                if (ScoreAdded != null)
+                {
+                    ScoreAdded(this, new EventArgs());
+                }
+
             }
             else
             {
@@ -115,11 +121,11 @@
             }
 
 
-                    return result;
-                }
-            }
+            return result;
         }
-    
+    }
+}
+
 
 
 
