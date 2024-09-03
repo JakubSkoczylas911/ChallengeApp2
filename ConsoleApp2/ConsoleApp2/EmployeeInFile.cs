@@ -1,4 +1,6 @@
-﻿namespace ConsoleApp2
+﻿using System.Runtime.CompilerServices;
+
+namespace ConsoleApp2
 {
     public class EmployeeInFile : EmployeeBase
     {
@@ -78,50 +80,34 @@
 
         public override Statistics GetStatistics()
         {
-            var result = new Statistics();
-            result.Max = float.MinValue;
-            result.Min = float.MaxValue;
-            result.Average = 0;
-            var counter = 0;
+            var scoresFromFile = this.ReadScoresFromFile();
+            var result = this.CountStatistics(scoresFromFile);
+            return result;
+        }
+        private List<float> ReadScoresFromFile()
+        {
+            var scores = new List<float>();
             if (File.Exists(FileName))
             {
                 using (var reader = File.OpenText(FileName))
                 {
                     var line = reader.ReadLine();
-
                     while (line != null)
                     {
-                        var number = float.Parse(line);
-                        result.Max = Math.Max(result.Max, number);
-                        result.Min = Math.Min(result.Min, number);
-                        result.Average += number;
-                        counter++;
                         line = reader.ReadLine();
                     }
                 }
-                result.Average /= counter;
-                switch (result.Average)
-                {
-                    case var avererage when avererage >= 80:
-                        result.AverageLetter = 'A';
-                        break;
-                    case var average when average >= 60:
-                        result.AverageLetter = 'B';
-                        break;
-                    case var average when average >= 40:
-                        result.AverageLetter = 'C';
-                        break;
-                    case var average when average >= 20:
-                        result.AverageLetter = 'D';
-                        break;
-                    default:
-                        result.AverageLetter = 'E';
-                        break;
-                }
             }
-
-
-            return result;
+            return scores;
+        }
+        private Statistics CountStatistics(List<float> scores)
+        {
+            var statistics = new Statistics();
+            foreach (var score in scores)
+            {
+                statistics.AddScore(score);
+            }
+            return statistics;
         }
     }
 }
