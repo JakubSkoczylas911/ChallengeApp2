@@ -94,7 +94,10 @@ namespace ConsoleApp2
                     var line = reader.ReadLine();
                     while (line != null)
                     {
+                        var score = float.Parse(line);
+                        scores.Add(score);
                         line = reader.ReadLine();
+
                     }
                 }
             }
